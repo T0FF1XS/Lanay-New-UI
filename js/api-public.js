@@ -2,17 +2,18 @@
    In production replace the body of load/save with fetch('/api/public/...') and return ONLY that guest's own order. */
 /* ---------- demo data (in memory; the real app would call the PHP api) ---------- */
 const mins = (m) => Date.now() - m * 6e4;
-/* Dish pictures: drop a file in the img/ folder with the name in img: below. No file = the icon shows as before. */
+/* Dish pictures: put the files in this folder, named as in img: below. No file = the icon shows as before. */
+const IMG_DIR = 'img/';
 const MENU = [
-  { id: 1, n: 'Salmon nigiri', p: 120, c: 'Sushi', e: 'fish', img: 'img/salmon-nigiri.jpg' },
-  { id: 2, n: 'California maki', p: 180, c: 'Sushi', e: 'circle-dot', img: 'img/california-maki.jpg' },
-  { id: 3, n: 'Dragon roll', p: 250, c: 'Sushi', e: 'fish-symbol', img: 'img/dragon-roll.jpg' },
-  { id: 4, n: 'Chicken katsu curry', p: 210, c: 'Japanese', e: 'drumstick', img: 'img/chicken-katsu-curry.jpg' },
-  { id: 5, n: 'Gyoza', p: 95, c: 'Japanese', e: 'croissant', img: 'img/gyoza.jpg' },
-  { id: 6, n: 'Ebi tempura', p: 220, c: 'Japanese', e: 'shrimp', img: 'img/ebi-tempura.jpg' },
-  { id: 7, n: 'Tonkotsu ramen', p: 240, c: 'Japanese', e: 'soup', img: 'img/tonkotsu-ramen.jpg' },
-  { id: 8, n: 'Miso soup', p: 70, c: 'Japanese', e: 'cooking-pot', img: 'img/miso-soup.jpg' },
-  { id: 9, n: 'Iced matcha', p: 110, c: 'Drinks', e: 'cup-soda', img: 'img/iced-matcha.jpg' },
+  { id: 1, n: 'Salmon nigiri', p: 120, c: 'Sushi', e: 'fish', img: 'salmon-nigiri.jpg' },
+  { id: 2, n: 'California maki', p: 180, c: 'Sushi', e: 'circle-dot', img: 'california-maki.jpg' },
+  { id: 3, n: 'Dragon roll', p: 250, c: 'Sushi', e: 'fish-symbol', img: 'dragon-roll.jpg' },
+  { id: 4, n: 'Chicken katsu curry', p: 210, c: 'Japanese', e: 'drumstick', img: 'chicken-katsu-curry.jpg' },
+  { id: 5, n: 'Gyoza', p: 95, c: 'Japanese', e: 'croissant', img: 'gyoza.jpg' },
+  { id: 6, n: 'Ebi tempura', p: 220, c: 'Japanese', e: 'shrimp', img: 'ebi-tempura.jpg' },
+  { id: 7, n: 'Tonkotsu ramen', p: 240, c: 'Japanese', e: 'soup', img: 'tonkotsu-ramen.jpg' },
+  { id: 8, n: 'Miso soup', p: 70, c: 'Japanese', e: 'cooking-pot', img: 'miso-soup.jpg' },
+  { id: 9, n: 'Iced matcha', p: 110, c: 'Drinks', e: 'cup-soda', img: 'iced-matcha.jpg' },
 ].map((m) => ({ ...m, on: 1 }));
 const SEATS = [2, 4, 4, 2, 4, 6, 4, 2, 6, 4],
   TB = SEATS.map((_, i) => i + 1);

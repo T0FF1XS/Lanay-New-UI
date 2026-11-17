@@ -35,7 +35,7 @@ const tstat = (n) => {
 };
 const cur = () => U.cur || (U.cur = { tb: 0, it: [] });
 const qn = (id) => (cur().it.find((x) => x[0] == id) || [0, 0])[1];
-const pic = (m) => ico(m.e) + (m.img ? `<img src="${m.img}" alt="${m.n}" onerror="this.remove()">` : '');
+const pic = (m) => ico(m.e) + (m.img ? `<img src="${IMG_DIR + m.img}" alt="${m.n}" onerror="this.remove()">` : '');
 const dish = (m) =>
   `<div class="card hov fl ${m.on ? '' : 'off'}"><div class="dish c-${m.c}">${pic(m)}</div><b style="display:block;margin:10px 0 4px">${m.n}</b><div class="row sp push"><b style="color:var(--ac)">${P(m.p)}</b>${m.on ? `<div class="qty"><button data-a="sub" data-v="${m.id}">−</button><b>${qn(m.id)}</b><button class="p" data-a="add" data-v="${m.id}">+</button></div>` : chip('Sold out', 'bad')}</div></div>`;
 const browse = () =>
