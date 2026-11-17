@@ -329,6 +329,19 @@ select {
   color: var(--ac);
 }
 
+.dish {
+  position: relative;
+  overflow: hidden;
+}
+
+.dish img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .dish svg {
   width: 42px;
   height: 42px;
