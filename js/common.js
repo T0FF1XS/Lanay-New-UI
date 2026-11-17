@@ -3,7 +3,7 @@
 const $ = (q, e = document) => e.querySelector(q),
   $$ = (q, e = document) => [...e.querySelectorAll(q)];
 const L = (a, f) => a.map(f).join('');
-const ico = (n, c) => `<svg class="i ${c || ''}"><use href="#i-${n}"/></svg>`; // icons live in the sprite at the top of <body>
+const ico = (n, c) => `<svg class="i ${c || ''}"><use href="icons.svg#i-${n}"/></svg>`; // icons live in icons.svg
 
 const P = (n) =>
   '₱' + (+n).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
