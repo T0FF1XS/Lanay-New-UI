@@ -347,19 +347,37 @@ select {
   stroke-width: 1.6;
 }
 
-.c-Sushi {
+.c-Maki,
+.c-Sushi,
+.c-Platters {
   background: linear-gradient(135deg, #fbe0d6, #fff4ee);
   color: #c0562f;
 }
 
-.c-Japanese {
+.c-Ramen,
+.c-Korean,
+.c-Meals,
+.c-Bento {
   background: linear-gradient(135deg, #f3e6d2, #fbf5ea);
   color: #8a5a2b;
 }
 
-.c-Drinks {
+.c-Starters,
+.c-Sides,
+.c-Filipino {
   background: linear-gradient(135deg, #e4eed8, #f6faf0);
   color: #5a7a3c;
+}
+
+.c-Unlimited {
+  background: linear-gradient(135deg, #f9ecc8, #fff9e8);
+  color: #a97a12;
+}
+
+/* Placeholder shown until a dish has a photo */
+.dish svg.ph {
+  width: 70%;
+  height: auto;
 }
 
 .off {

@@ -17,9 +17,9 @@ const T = {
     ['Owner', 'Owner'],
   ],
   deliv: [
-    ['Delivery 14', '2× Chicken katsu curry, 2× Gyoza', 'Preparing'],
-    ['Delivery 15', '1× Dragon roll', 'Preparing'],
-    ['Takeout 8', '2× Gyoza', 'Ready'],
+    ['Delivery 14', '2× Karaage w/ Chahan Rice, 2× Gyoza 5pcs', 'Preparing'],
+    ['Delivery 15', '1× Dynamite Roll', 'Preparing'],
+    ['Takeout 8', '2× Gyoza 5pcs', 'Ready'],
   ],
   cater: [
     ['Client 1', 'Nov 14, 40 guests', 'Quote sent'],

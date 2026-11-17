@@ -32,7 +32,7 @@ const tstat = (n) => {
 };
 const cur = () => U.cur || (U.cur = { tb: 0, it: [] });
 const qn = (id) => (cur().it.find((x) => x[0] == id) || [0, 0])[1];
-const pic = (m) => ico(m.e) + (m.img ? `<img src="${IMG_DIR + m.img}" alt="${m.n}" onerror="this.remove()">` : '');
+const pic = (m) => `<svg class="ph" viewBox="0 0 200 120"><use href="icons.svg#ph"/></svg>` + (m.img ? `<img src="${IMG_DIR + m.img}" alt="${m.n}" onerror="this.remove()">` : '');
 const dish = (m) =>
   `<div class="card hov fl ${m.on ? '' : 'off'}"><div class="dish c-${m.c}">${pic(m)}</div><b style="display:block;margin:10px 0 4px">${m.n}</b><div class="row sp push"><b style="color:var(--ac)">${P(m.p)}</b>${m.on ? `<div class="qty"><button data-a="sub" data-v="${m.id}">−</button><b>${qn(m.id)}</b><button class="p" data-a="add" data-v="${m.id}">+</button></div>` : chip('Sold out', 'bad')}</div></div>`;
 const browse = () =>
@@ -40,7 +40,7 @@ const browse = () =>
   tabs(
     'cat',
     U.cat || 'All',
-    ['All', 'Sushi', 'Japanese', 'Drinks'].map((c) => [c, c])
+    ['All', ...CATS].map((c) => [c, c])
   ) +
   `<div class="grid stag menu">${L(
     MENU.filter((m) => !U.cat || U.cat == 'All' || m.c == U.cat),
@@ -60,7 +60,7 @@ const qr = (n) => {
   for (let y = 0; y < c; y++) for (let x = 0; x < c; x++) if (q.isDark(y, x)) r += `<rect x="${x + m}" y="${y + m}" width="1" height="1"/>`;
   return `<svg viewBox="0 0 ${c + 2 * m} ${c + 2 * m}" width="140" style="display:block;margin:0 auto 8px;background:#fff">${r}</svg>`;
 };
-const qrUrl = (n) => new URL('customer.html?table=' + n, location.href).href;
+const qrUrl = (n) => new URL('customer/index.html?table=' + n, location.href).href;
 const empty = (e, t, d) =>
   `<div class="card rise" style="text-align:center;padding:48px"><div class="eic">${ico(e)}</div><b>${t}</b><p class="mut">${d}</p></div>`;
 

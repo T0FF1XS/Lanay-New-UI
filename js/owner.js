@@ -46,7 +46,7 @@ const V = {
         `<button class="sw ${m.on ? 'on' : ''}" data-a="tog" data-v="${m.id}"></button>`,
       ])
     ) +
-    `<div class="card row rise" style="flex-wrap:wrap"><input id="mn" placeholder="New item name" style="flex:2"><input id="mp" type="number" placeholder="Price" style="flex:1"><select id="mc" style="flex:1"><option>Sushi</option><option>Japanese</option><option>Drinks</option></select><button class="btn" data-a="addm">Add item</button></div>`,
+    `<div class="card row rise" style="flex-wrap:wrap"><input id="mn" placeholder="New item name" style="flex:2"><input id="mp" type="number" placeholder="Price" style="flex:1"><select id="mc" style="flex:1">${L(CATS, (c) => `<option>${c}</option>`)}</select><button class="btn" data-a="addm">Add item</button></div>`,
   'owner.stock': () =>
     `<div class="two"><div class="col stag">${L(T.stock, (s) => `<div class="card"><div class="row sp"><b>${s[0]}</b>${s[2] < s[3] ? chip('Low', 'bad') : chip('OK', 'ok')}</div><div class="mut">${s[2]} ${s[1]} in stock, minimum ${s[3]} ${s[1]}</div><div class="bar" style="margin-top:8px"><i style="width:${Math.min(100, (s[2] / (s[3] * 2)) * 100)}%"></i></div></div>`)}</div><div class="card col rise" style="align-self:start"><h3>Add stock</h3><select id="si">${L(T.stock, (s) => `<option>${s[0]}</option>`)}</select><input id="sa" type="number" placeholder="Amount"><button class="btn" data-a="addst">Save to stock</button></div></div>`,
   'owner.staff': () =>
