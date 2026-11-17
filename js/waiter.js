@@ -1,4 +1,3 @@
-/* waiter page: only the waiter screens and actions live here */
 const ROLE = 'waiter';
 const R = {
   waiter: {

@@ -1,4 +1,3 @@
-/* cashier page: only the cashier screens and actions live here */
 const ROLE = 'cashier';
 const R = {
   cashier: {
@@ -13,7 +12,6 @@ const R = {
   },
 };
 const alerts = () => S.bill.map((t) => `Table ${t} asked for the bill`);
-/* cashier bill panel and receipt */
 const bill = (o) => {
   const d = U.d || 'None',
     sub = sum(o),

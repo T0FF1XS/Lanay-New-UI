@@ -1,9 +1,7 @@
-/* STAFF API (demo): stock, sales, staff, logs, discounts. Never loaded by customer.html.
-   In production this is /api/staff/... on the server, checked against the signed-in role on every request. */
 const T = {
   sales: 18450,
   cash: 0,
-  waste: [], // staff only: customer.html never loads this
+  waste: [],
   stock: [
     ['Salmon', 'kg', 5, 3],
     ['Nori sheets', 'pcs', 48, 50],
@@ -35,8 +33,7 @@ const T = {
 {
   const KT = 'lanay.staff',
     l = API.load,
-    s = API.save,
-    r = API.reset;
+    s = API.save;
   API.KT = KT;
   API.load = function () {
     l.call(this);
@@ -50,9 +47,5 @@ const T = {
     try {
       localStorage.setItem(KT, JSON.stringify(T));
     } catch (e) {}
-  };
-  API.reset = function () {
-    r.call(this);
-    localStorage.removeItem(KT);
   };
 }

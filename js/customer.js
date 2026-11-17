@@ -1,4 +1,3 @@
-/* customer page: opened from the table QR (customer.html?table=5). Loads only api-public.js, never staff data. */
 const $ = (q, e = document) => e.querySelector(q);
 const L = (a, f) => a.map(f).join('');
 const ico = (n, c) => `<svg class="i ${c || ''}"><use href="icons.svg#i-${n}"/></svg>`;
@@ -17,7 +16,6 @@ const ST = { new: ['Sent', 'warn'], preparing: ['Preparing', 'info'], ready: ['R
 let U = { tb: +new URLSearchParams(location.search).get('table') || 0, scr: 'menu', cart: [], cat: 'All', rate: 0 };
 if (!TB.includes(U.tb)) U.tb = 0;
 
-/* this guest's table only; in production the server returns just that guest's own order */
 const mine = () => S.orders.filter((o) => o.tb == U.tb && o.st != 'paid');
 const qn = (id) => (U.cart.find((x) => x[0] == id) || [0, 0])[1];
 
@@ -124,7 +122,6 @@ document.addEventListener('click', (e) => {
   const b = e.target.closest('[data-a]');
   if (b && A[b.dataset.a]) A[b.dataset.a](b.dataset.v);
 });
-/* staff change an order in another tab: refresh the status here */
 addEventListener('storage', (e) => {
   if (e.key == API.KP) {
     API.load();

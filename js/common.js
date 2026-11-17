@@ -1,16 +1,13 @@
-/* Shared by every staff page. No role-specific screens or data in here. */
-/* ---------- helpers ---------- */
 const $ = (q, e = document) => e.querySelector(q),
   $$ = (q, e = document) => [...e.querySelectorAll(q)];
 const L = (a, f) => a.map(f).join('');
-const ico = (n, c) => `<svg class="i ${c || ''}"><use href="icons.svg#i-${n}"/></svg>`; // icons live in icons.svg
+const ico = (n, c) => `<svg class="i ${c || ''}"><use href="icons.svg#i-${n}"/></svg>`;
 
 const P = (n) =>
   '₱' + (+n).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const clock = () => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 const ago = (t) => Math.max(1, Math.round((Date.now() - t) / 6e4)) + ' min';
 
-/* ---------- small pieces ---------- */
 const M = (id) => MENU.find((m) => m.id == id);
 const sum = (o) => o.it.reduce((s, [i, q]) => s + M(i).p * q, 0);
 const lines = (o) => o.it.map(([i, q]) => q + '× ' + M(i).n).join(', ');
@@ -54,7 +51,6 @@ const steps = (s) => {
   return `<div class="row">${L(['Sent', 'Preparing', 'Ready', 'Served'], (x, i) => `<div class="step ${i <= k.indexOf(s) ? 'on' : ''}"><i></i>${x}</div>`)}</div>`;
 };
 const qr = (n) => {
-  /* real, scannable QR for this table. It points at customer.html on whatever address this site is served from. */
   const q = qrcode(0, 'M'),
     m = 2;
   q.addData(qrUrl(n));
@@ -81,7 +77,7 @@ const shell = (anim) => {
 };
 const login = (anim) => {
   const r = R[ROLE];
-  return `<div class="login ${anim ? 'in' : ''}"><img class="brand rise" src="${LOGO}" alt="Lanay Restaurant"><h2 class="rise">${r.n}</h2><p class="mut rise">Enter your 4-digit PIN.</p><div class="row dots rise">${L([0, 1, 2, 3], (i) => `<i class="${i < U.pin.length ? 'f' : ''}"></i>`)}</div><div class="pad rise">${L(['1', '2', '3', '4', '5', '6', '7', '8', '9', '', '0', '⌫'], (k) => (k ? `<button data-a="key" data-v="${k}">${k}</button>` : '<span></span>'))}</div><p class="mut rise">Demo PIN: ${r.pin}</p><a class="btn g" href="index.html">Back to roles</a></div>`;
+  return `<div class="login ${anim ? 'in' : ''}"><img class="brand rise" src="${LOGO}" alt="Lanay Restaurant"><h2 class="rise">${r.n}</h2><p class="mut rise">Enter your 4-digit PIN.</p><div class="row dots rise">${L([0, 1, 2, 3], (i) => `<i class="${i < U.pin.length ? 'f' : ''}"></i>`)}</div><div class="pad rise">${L(['1', '2', '3', '4', '5', '6', '7', '8', '9', '', '0', '⌫'], (k) => (k ? `<button data-a="key" data-v="${k}">${k}</button>` : '<span></span>'))}</div><a class="btn g" href="index.html">Back to roles</a></div>`;
 };
 let me = null,
   scr = '',

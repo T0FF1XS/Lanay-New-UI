@@ -1,4 +1,3 @@
-/* kitchen page: only the kitchen screens and actions live here */
 const ROLE = 'kitchen';
 const R = {
   kitchen: {

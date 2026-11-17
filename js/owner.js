@@ -1,4 +1,3 @@
-/* owner page: only the owner screens and actions live here */
 const ROLE = 'owner';
 const R = {
   owner: {
@@ -98,7 +97,7 @@ const V = {
       ],
       ([k, l]) =>
         `<div class="row sp"><span>${l}</span><button class="sw ${S.set[k] ? 'on' : ''}" data-a="set" data-v="${k}"></button></div>`
-    )}<button class="btn g" data-a="reset">Reset demo data</button></div>`,
+    )}</div>`,
 };
 const A = {
   ...A_COMMON,
@@ -152,10 +151,6 @@ const A = {
   set: (k) => {
     S.set[k] ^= 1;
     render();
-  },
-  reset: () => {
-    API.reset();
-    location.reload();
   },
 };
 boot();

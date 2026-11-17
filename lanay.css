@@ -1,4 +1,3 @@
-/* Each role sets its own accent on <body data-role>, so colors never bleed between roles */
 :root {
   --ac: #b3262c;
   --soft: #f8e6e2;
@@ -953,7 +952,6 @@ button {
   }
 }
 
-/* ---------- aligned cards: body grows, action row always sits on the bottom edge ---------- */
 .grid {
   align-items: stretch;
 }

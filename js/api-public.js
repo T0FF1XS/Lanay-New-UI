@@ -1,8 +1,4 @@
-/* PUBLIC API (demo). The only data file customer.html may load: menu, table orders status, feedback.
-   In production replace the body of load/save with fetch('/api/public/...') and return ONLY that guest's own order. */
-/* ---------- demo data (in memory; the real app would call the PHP api) ---------- */
 const mins = (m) => Date.now() - m * 6e4;
-/* Dish pictures: put the files in this folder, named as in img: below. No file = the icon shows as before. */
 const IMG_DIR = 'img/';
 const MENU = [
   { id: 1, n: 'Salmon nigiri', p: 120, c: 'Sushi', e: 'fish', img: 'salmon-nigiri.jpg' },
@@ -21,9 +17,9 @@ const S = {
   n: 44,
   bill: [],
   calls: [],
-  set: { vat: 1, sound: 1, backup: 1, qr: 1 }, // shared with customer.html
+  set: { vat: 1, sound: 1, backup: 1, qr: 1 },
   orders: [
-    // it = [menuId, qty, note]
+
     {
       id: 41,
       tb: 6,
@@ -89,8 +85,5 @@ const API = {
     try {
       localStorage.setItem(this.KP, JSON.stringify({ S, MENU }));
     } catch (e) {}
-  },
-  reset() {
-    localStorage.removeItem(this.KP);
   },
 };
