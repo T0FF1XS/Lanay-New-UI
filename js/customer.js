@@ -60,7 +60,7 @@ const draw = (anim) => {
     ? box('<h2 class="rise">Ordering from your phone is off</h2><p class="mut rise">Please call a waiter and we will take your order.</p>')
     : !U.tb
       ? box('<h2 class="rise">Welcome</h2><p class="mut rise">Please scan the QR code on your table to order.</p>')
-      : `<div class="shell ph"><header class="top"><h1>${TAB.find((t) => t[0] == U.scr)[1]}</h1>${chip('Table ' + U.tb)}</header><div class="page ${anim ? 'in' : ''}">${V[U.scr]()}</div><nav class="tabs">${L(TAB, ([k, l, i]) => `<button class="nav ${k == U.scr ? 'on' : ''}" data-a="go" data-v="${k}"><b>${ico(i)}</b><span>${l}</span></button>`)}</nav></div>`;
+      : `<div class="shell cust"><header class="top"><h1>${TAB.find((t) => t[0] == U.scr)[1]}</h1>${chip('Table ' + U.tb)}</header><div class="page ${anim ? 'in' : ''}">${V[U.scr]()}</div><nav class="tabs">${L(TAB, ([k, l, i]) => `<button class="nav ${k == U.scr ? 'on' : ''}" data-a="go" data-v="${k}"><b>${ico(i)}</b><span>${l}</span></button>`)}</nav></div>`;
   if ($('.page')) $('.page').scrollTop = y;
   if (anim) document.querySelectorAll('.in .rise,.in .stag>*').forEach((e, i) => e.style.setProperty('--i', i % 12));
 };

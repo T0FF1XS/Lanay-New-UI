@@ -554,38 +554,39 @@ th {
   transform: scale(1.2);
 }
 
-.ph {
-  width: 400px;
-  height: min(820px, 94vh);
+.cust {
+  width: 100%;
+  height: 100dvh;
   flex-direction: column;
-  border: 10px solid #2d2220;
-  border-radius: 44px;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-.ph .top {
+.cust .top {
   padding: 14px 18px;
 }
 
-.ph .page {
+.cust .page {
   padding: 14px;
 }
 
-.ph .grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.cust .page > * {
+  width: 100%;
+  max-width: 960px;
+  margin-inline: auto;
 }
 
-.ph .grid .row {
+.cust .grid {
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+.cust .grid .row {
   flex-wrap: wrap;
   gap: 6px;
 }
 
-.ph .dish {
-  height: 70px;
-}
-
-.ph .dish svg {
-  width: 32px;
-  height: 32px;
+[data-role="customer"] {
+  padding: 0;
 }
 
 .tabs {
@@ -819,7 +820,7 @@ button {
     padding: 0;
   }
 
-  .shell:not(.ph) {
+  .shell:not(.cust) {
     width: 100%;
     height: 100dvh;
     border-radius: 0;
@@ -922,13 +923,6 @@ button {
 }
 
 @media (max-width: 560px) {
-  .ph {
-    width: 100%;
-    height: 100dvh;
-    border: 0;
-    border-radius: 0;
-  }
-
   .login {
     padding: 22px 16px;
     border-radius: 0;
