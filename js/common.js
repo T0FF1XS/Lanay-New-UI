@@ -54,16 +54,17 @@ const steps = (s) => {
   return `<div class="row">${L(['Sent', 'Preparing', 'Ready', 'Served'], (x, i) => `<div class="step ${i <= k.indexOf(s) ? 'on' : ''}"><i></i>${x}</div>`)}</div>`;
 };
 const qr = (n) => {
-  let x = n * 7919,
-    s = '';
-  for (let y = 0; y < 9; y++)
-    for (let c = 0; c < 9; c++) {
-      x = (x * 16807) % 2147483647;
-      if (((y < 3 || y > 5) && (c < 3 || c > 5) && !(y > 5 && c > 5)) || x % 3 == 0)
-        s += `<rect x="${c}" y="${y}" width="1" height="1"/>`;
-    }
-  return `<svg viewBox="0 0 9 9" width="96" style="display:block;margin:0 auto 8px">${s}</svg>`;
+  /* real, scannable QR for this table. It points at customer.html on whatever address this site is served from. */
+  const q = qrcode(0, 'M'),
+    m = 2;
+  q.addData(qrUrl(n));
+  q.make();
+  const c = q.getModuleCount();
+  let r = '';
+  for (let y = 0; y < c; y++) for (let x = 0; x < c; x++) if (q.isDark(y, x)) r += `<rect x="${x + m}" y="${y + m}" width="1" height="1"/>`;
+  return `<svg viewBox="0 0 ${c + 2 * m} ${c + 2 * m}" width="140" style="display:block;margin:0 auto 8px;background:#fff">${r}</svg>`;
 };
+const qrUrl = (n) => new URL('customer.html?table=' + n, location.href).href;
 const empty = (e, t, d) =>
   `<div class="card rise" style="text-align:center;padding:48px"><div class="eic">${ico(e)}</div><b>${t}</b><p class="mut">${d}</p></div>`;
 

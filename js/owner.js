@@ -86,7 +86,8 @@ const V = {
           'Senior and PWD discounts from the cashier show here.'
         ),
   'owner.qr': () =>
-    `<div class="grid stag">${L(TB, (n) => `<div class="card hov" style="text-align:center">${qr(n)}<b>Table ${n}</b><div class="mut">customer.html?table=${n}</div><a class="btn g w" style="margin-top:8px;display:block" href="customer.html?table=${n}" target="_blank" rel="noopener">Open customer page</a></div>`)}</div>`,
+    (/^(localhost|127\.|192\.168\.)|^$/.test(location.hostname) ? '<p class="mut rise">These codes point at this computer. Open this page from your real website address before printing them.</p>' : '') +
+    `<div class="grid stag">${L(TB, (n) => `<div class="card hov" style="text-align:center">${qr(n)}<b>Table ${n}</b><div class="mut" style="word-break:break-all">${qrUrl(n)}</div><a class="btn g w" style="margin-top:8px;display:block" href="${qrUrl(n)}" target="_blank" rel="noopener">Open customer page</a></div>`)}</div>`,
   'owner.set': () =>
     `<div class="card col rise" style="max-width:520px">${L(
       [
